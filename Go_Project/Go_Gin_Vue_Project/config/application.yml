@@ -1,0 +1,9 @@
+server:
+  port: 1016
+datasource:
+  host: 127.0.0.1:3306
+  database: gin_vue
+  username: root
+  password: ptllove1
+  charset: utf8
+  loc: Asia/Shanghai
