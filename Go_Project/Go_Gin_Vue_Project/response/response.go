@@ -5,22 +5,21 @@ import (
 	"net/http"
 )
 
-//{
-//	code:20001,
-//	data:xxx,
-//	msg:xx
-//}
-
+// Response 是统一的响应函数，用于返回 JSON 格式的响应
 func Response(c *gin.Context, httpStatus int, code int, data gin.H, msg string) {
 	c.JSON(httpStatus, gin.H{
-		"code": code,
-		"data": data,
-		"msg":  msg,
+		"code": code, // 状态码
+		"data": data, // 数据
+		"msg":  msg,  // 消息
 	})
 }
-func Success(c *gin.Context, date gin.H, msg string) {
-	Response(c, http.StatusOK, 200, date, msg)
+
+// Success 返回成功的响应
+func Success(c *gin.Context, data gin.H, msg string) {
+	Response(c, http.StatusOK, 200, data, msg)
 }
-func Fail(c *gin.Context, date gin.H, msg string) {
-	Response(c, http.StatusOK, 400, date, msg)
+
+// Fail 返回失败的响应
+func Fail(c *gin.Context, data gin.H, msg string) {
+	Response(c, http.StatusOK, 400, data, msg)
 }
